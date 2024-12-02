@@ -23,8 +23,8 @@ int main() {
         printf("a1 %Lf\n", a1);
         printf("b1 %i\n", b1);
 
-        s = s+b1*a1/f;
-
+        // s = s+b1*a1/f;
+        long double p = b1*a1/f;
 
         a1 = a1*4;
         b1 = b1*(-1);
