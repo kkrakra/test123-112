@@ -2,6 +2,19 @@
 #include <stdlib.h>
 #include "array.h"
 
+int input_natural_number(const char* prompt) {
+    int number;
+    while (1) {
+        printf("%s", prompt);
+        if (scanf("%d", &number) == 1 && number > 0) {
+            return number;
+        } else {
+            printf("Ошибка: введите натуральное число (целое число больше 0).\n");
+            while (getchar() != '\n');
+        }
+    }
+}
+
 int* initialize_array(int* size, int* capacity) {
     *size = input_natural_number("Введите размер массива: ");
     *capacity = *size;
@@ -12,8 +25,12 @@ int* initialize_array(int* size, int* capacity) {
         return NULL;
     }
 
+    // for (int i = 0; i < *size; i++) {
+    //     array[i] = input_natural_number("Введите элемент массива: ");
+    // }
     for (int i = 0; i < *size; i++) {
-        array[i] = input_natural_number("Введите элемент массива: ");
+        printf("Введите элемент массива.\n");
+        scanf("%d", &array[i]);
     }
     return array;
 }
@@ -70,7 +87,7 @@ void print_array(int* array, int size, int capacity) {
 
     printf("Массив (размер: %d, емкость: %d): ", size, capacity);
     for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
+        printf("[%d]=%d ", i, array[i]);
     }
     printf("\n");
 }
