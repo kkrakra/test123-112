@@ -19,6 +19,8 @@ int is_decreased(int b) {
 }
 
 
+
+
 void removeItemAtIndex(int* array, int* size_p, int index) {
     // Check if the index is valid
     if (index < 0 || index >= *size_p) {
